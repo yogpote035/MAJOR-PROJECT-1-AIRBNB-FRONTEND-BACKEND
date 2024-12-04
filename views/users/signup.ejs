@@ -1,0 +1,52 @@
+<%- include("../includes/layouts/boilerplate") %>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center bg-dark text-white">
+                        <h4>signup</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="/signup" method="post" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" name="username" class="form-control" id="username"
+                                    placeholder="Enter your username" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid username.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" name="email" class="form-control" id="email"
+                                    placeholder="Enter your email" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid email.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control" id="password"
+                                    placeholder="Enter your password" required>
+                                <div class="invalid-feedback">
+                                    Please provide a correct password.
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-dark">signup</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <form action="" method="get">
+                            <small>already have an account <a href="/login">Login</a></small>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("../includes/footer") %>

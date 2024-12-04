@@ -1,0 +1,310 @@
+/* Navbar Styling */
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.navbar {
+    height: 5rem;
+    background-color: white;
+    width: 100%;
+}
+
+.navbar-brand,
+.navbar-brand i {
+    color: #fe424d;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand i {
+    font-size: 2rem;
+}
+
+.brand-active {
+    color: #fe424d;
+    padding: 3px;
+    color: #fe424d !important;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+.fa-solid {
+    font-size: 1rem;
+    margin: .3rem;
+}
+
+/* Card Styling */
+.card {
+    border: none;
+}
+
+
+.card-img-top {
+    height: 20rem;
+    width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+/* General Grid Layout */
+.container {
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.listingNavigator {
+    text-decoration: none;
+    color: black;
+}
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.1;
+    background-color: lightcyan;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+/* try */
+
+
+.footer {
+    background-color: #f2f1f1;
+    color: black;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.footer-socials a {
+    color: #fa0000;
+    font-size: 1.5rem;
+    margin: 0 25px;
+    text-decoration: none;
+    /* padding: 1rem; */
+}
+
+.footer-socials a .bxl-linkedin:hover {
+    color: #087476;
+}
+
+
+
+.footer-socials a .bxl-instagram:hover {
+    color: #cc1c48;
+}
+
+
+
+.footer-socials a .bxl-twitter:hover {
+    color: #000000;
+}
+
+.footer-socials a i {
+    padding: 5px;
+}
+
+
+.footer-brand {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.footer-links a {
+    color: #ff0000;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+/* show one style */
+.show-img {
+    height: 30vh;
+}
+
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.btn-edit {
+    margin: 3rem;
+}
+
+.btn-delete {
+    margin: 3rem;
+}
+
+/* review section */
+.review-section {
+    margin-bottom: 2rem;
+}
+
+.all-reviews {
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.reviews-list .review-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    height: 100%;
+}
+
+.show-review-main-div {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.review-item .card-body {
+    padding: 1rem;
+}
+
+.review-comment {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.review-rating {
+    font-size: 0.9rem;
+    color: #000000;
+}
+
+.text-muted {
+    font-style: italic;
+    font-size: 1rem;
+}
+
+
+#decorative-map {
+    height: 400px;
+    width: 100%;
+    border: none;
+    /* pointer-events: none; */
+}
+
+/* next nav  bar icon  */
+/* General Filters Container */
+/* General container for filters */
+#filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    /* Compact grid */
+    gap: 0;
+    padding: 5px;
+    width: 100%;
+    margin: 0 0;
+    /* Center alignment for the container */
+}
+
+/* Each filter */
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+
+/* Filter text */
+.filter p {
+    margin: 0;
+    font-size: 12px;
+    /* Smaller text size */
+    color: #333;
+    /* Darker text for readability */
+    font-weight: 500;
+    transition: text-decoration 0.2s ease-in-out;
+    /* Smooth underline effect */
+}
+
+/* Hover effect for text */
+.filter:hover p {
+    text-decoration: underline;
+    /* Underline on hover */
+}
+
+.tax-switch {
+    display: flex;
+    align-items: center;
+}
+
+.border-box {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+    /* Adds space between the text and switch button */
+}
+
+.form-check-input:checked {
+    background-color: rgb(67, 227, 69);
+    border: none;
+}
+
+.form-check-input {
+    margin: 0;
+    /* Ensure no extra margin for the switch button */
+}
+
+.form-check-label {
+    margin: 0;
+    line-height: .8rem;
+    /* Ensure no extra margin for the label */
+    
+}
+
+
+/* search */
+.search-btn {
+    margin-left: 3rem;
+}
+
+.search-btn i {
+    display: inline;
+}
+
+

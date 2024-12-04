@@ -1,0 +1,153 @@
+<%- include("../includes/layouts/boilerplate") %>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Listing Card -->
+                <div class="listing-card card shadow-lg border-0">
+                    <img src="<%= listing.image.url %>" class="card-img-top listing-image" alt="<%= listing.title %>">
+                    <div class="card-body">
+                        <h2 class="listing-title text-center mb-4">
+                            <%= listing.title %>
+                        </h2>
+                        <p class="listing-description"><strong>Description:</strong>
+                            <%= listing.description %>
+                        </p>
+                        <p class="listing-price">
+                            <strong>Price:</strong> &#8377;<%= listing.price.toLocaleString("en-IN") %>/night
+                        </p>
+                        <p class="listing-location">
+                            <strong>Location:</strong>
+                            <%= listing.location %>, <%= listing.country %>
+                        </p>
+                        <p><strong>Posted by:</strong> <span class="text-muted">
+                                <%= listing.owner.username %>
+                            </span></p>
+                    </div>
+                </div>
+
+                <!-- Owner Actions -->
+                <% if (currentUser && currentUser._id.equals(listing.owner._id)) { %>
+                    <div class="action-buttons d-flex justify-content-between p-1 mt-4">
+                        <form action="/listings/<%= listing.id %>/edit" method="get">
+                            <button type="submit" class="btn btn-outline-primary">Edit</button>
+                        </form>
+                        <form action="/listings/<%= listing.id %>?_method=DELETE" method="post">
+                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                        </form>
+                    </div>
+                    
+                    <% } %>
+            </div>
+
+            <!-- Review Section -->
+            <% if (currentUser) { %>
+                <div class="col-lg-9 h-100">
+                    <div class="review-section card shadow-lg mt-5 w-75 mx-auto">
+                        <div class="card-header bg-success text-white text-center">
+                            <h4>Leave a Review</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="/listings/<%= listing.id %>/reviews" method="post" novalidate
+                                class="needs-validation">
+                                <div class="mb-3">
+                                    <label for="comment" class="form-label d-block text-center">Comment:</label>
+                                    <textarea name="review[comment]" id="comment" class="form-control" rows="4"
+                                        placeholder="Share your experience..." style="resize: none;"
+                                        required></textarea>
+                                    <div class="invalid-feedback">Please add Your Valuable Experience</div>
+                                </div>
+                                <div class="mb-3 text-center">
+                                    <label for="rating" class="form-label d-block">Rating:</label>
+                                    <div class="d-flex justify-content-center">
+                                        <fieldset class="starability-slot">
+                                            <% [1, 2, 3, 4, 5].forEach(star=> { %>
+                                                <input type="radio" id="rate-<%= star %>" name="review[rating]"
+                                                    value="<%= star %>" />
+                                                <label for="rate-<%= star %>"
+                                                    title="<%= ['Terrible', 'Not good', 'Average', 'Very good', 'Amazing'][star - 1] %>">
+                                                    <%= star %> star<%= star> 1 ? 's' : '' %>
+                                                </label>
+                                                <% }); %>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-success w-50 mt-3">Submit Review</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+
+                    <!-- Reviews List -->
+                    <div class="col-lg-12 show-review-main-div mt-5 p-3">
+                        <h4 class="text-center">All Reviews</h4>
+                        <div class="reviews-list row gx-4 gy-4">
+                            <% if (listing.reviews.length> 0) { %>
+                                <% listing.reviews.forEach(review=> { %>
+                                    <div class="col-md-6">
+                                        <div class="review-item card shadow-sm">
+                                            <div class="card-body">
+                                                <strong class="text-muted">@ <%= review.author.username || "Anonymous"
+                                                        %></strong>
+                                                <p class="starability-result review-rating"
+                                                    data-rating="<%= review.rating %>"></p>
+                                                <p class="review-comment">
+                                                    <%= review.comment %>
+                                                </p>
+                                            </div>
+                                            <% if (currentUser && currentUser._id.equals(review.author._id)) { %>
+                                                <div class="action-buttons d-flex justify-content-center mb-3">
+                                                    <form
+                                                        action="/listings/<%= listing.id %>/reviews/<%= review._id %>?_method=DELETE"
+                                                        method="post">
+                                                        <button type="submit"
+                                                            class="btn btn-outline-danger">Delete</button>
+                                                    </form>
+                                                </div>
+                                                <% } %>
+                                        </div>
+                                    </div>
+                                    <% }); %>
+                                        <% } else { %>
+                                            <p class="text-center text-muted">No reviews yet. Be the first to leave one!
+                                            </p>
+                                            <% } %>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Map -->
+                    <div class="col-lg-12 mt-3 mb-3">
+                        <h1>Where you'll be</h1>
+                        <div id="decorative-map" style="height: 400px;"></div>
+                    </div>
+        </div>
+    </div>
+
+
+    <%- include("../includes/footer") %>
+
+        <script>
+            // Safely parse coordinates from the server
+            const latitude = parseFloat('<%= listing.coordinates[1] || "0" %>');
+            const longitude = parseFloat('<%= listing.coordinates[0] || "0" %>');
+
+            // Initialize Leaflet Map
+            if (latitude && longitude) {
+                const map = L.map('decorative-map').setView([latitude, longitude], 13);
+
+                // Add tile layer
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                }).addTo(map);
+
+                // Add marker
+                L.marker([latitude, longitude]).addTo(map)
+                    .bindPopup(`<b><%= listing.title %></b><br><%= listing.location %>, <%= listing.country %>`)
+                    .openPopup();
+            } else {
+                console.error("Invalid map coordinates provided.");
+            }
+        </script>
