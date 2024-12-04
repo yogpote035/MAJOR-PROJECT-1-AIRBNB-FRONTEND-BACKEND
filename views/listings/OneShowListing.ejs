@@ -36,7 +36,7 @@
                             <button type="submit" class="btn btn-outline-danger">Delete</button>
                         </form>
                     </div>
-                    
+
                     <% } %>
             </div>
 
@@ -61,14 +61,18 @@
                                     <label for="rating" class="form-label d-block">Rating:</label>
                                     <div class="d-flex justify-content-center">
                                         <fieldset class="starability-slot">
-                                            <% [1, 2, 3, 4, 5].forEach(star=> { %>
-                                                <input type="radio" id="rate-<%= star %>" name="review[rating]"
-                                                    value="<%= star %>" />
-                                                <label for="rate-<%= star %>"
-                                                    title="<%= ['Terrible', 'Not good', 'Average', 'Very good', 'Amazing'][star - 1] %>">
-                                                    <%= star %> star<%= star> 1 ? 's' : '' %>
-                                                </label>
-                                                <% }); %>
+                                            <input type="radio" id="no-rate" class="input-no-rate" name="rating"
+                                                value="1" checked aria-label="No rating." />
+                                            <input type="radio" id="first-rate1" name="rating" value="1" />
+                                            <label for="first-rate1" title="Terrible">1 star</label>
+                                            <input type="radio" id="first-rate2" name="rating" value="2" />
+                                            <label for="first-rate2" title="Not good">2 stars</label>
+                                            <input type="radio" id="first-rate3" name="rating" value="3" />
+                                            <label for="first-rate3" title="Average">3 stars</label>
+                                            <input type="radio" id="first-rate4" name="rating" value="4" />
+                                            <label for="first-rate4" title="Very good">4 stars</label>
+                                            <input type="radio" id="first-rate5" name="rating" value="5" />
+                                            <label for="first-rate5" title="Amazing">5 stars</label>
                                         </fieldset>
                                     </div>
                                 </div>

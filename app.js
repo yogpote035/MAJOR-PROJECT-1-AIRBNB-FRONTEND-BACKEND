@@ -85,11 +85,12 @@ app.use((request, response, next) => {
     next();
 });
 
-app.use("/listings", listingsRouter);
-app.use("/listings/:id/reviews", reviewRouter);
 app.get("/", (request, response) => {
     response.redirect("/listings");
 })
+
+app.use("/listings", listingsRouter);
+app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", UserRouter);
 
 // all path except define
