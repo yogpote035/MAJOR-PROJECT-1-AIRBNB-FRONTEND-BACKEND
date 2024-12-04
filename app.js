@@ -93,7 +93,9 @@ app.use("/", UserRouter);
 app.all("*", (request, response, next) => {
     next(new ExpressError(404, "Page Not Found"));
 });
-
+app.get("/", (request, response) => {
+    response.redirect("/listings");
+})
 // custom error handler
 app.use((err, req, res, next) => {
     let { statusCode = 500, message = "something went wrong" } = err;
