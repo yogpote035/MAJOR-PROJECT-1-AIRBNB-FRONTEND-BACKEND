@@ -7,8 +7,7 @@ This is a clone of the popular Airbnb platform, developed with a full-stack appr
 - [About](#about)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Frontend Installation](#frontend-installation)
-- [Backend Installation](#backend-installation)
+
 
 
 ## About
