@@ -72,7 +72,7 @@
                                 </p>
                                 <span class="fw-bold text-dark">
                                     &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : 'N/A' %>
-                                        /night <span class="tax-info">+ 18% GST</span>
+                                        /night <p class="tax-info">+ 18% GST</p>
                                 </span>
                             </div>
                         </a>
@@ -88,17 +88,4 @@
 
         </html>
 
-        <script>
-            let taxSwitchBtn = document.getElementById("flexSwitchCheckDefault");
-            taxSwitchBtn.addEventListener("click", () => {
-                let taxInfo = document.getElementsByClassName("tax-info");
-                for (info of taxInfo) {
-                    if (info.style.display != 'inline') {
-                        info.style.display = 'inline';
-                    } else {
-                        info.style.display = 'none'
-                    }
-                }
-            })
-
-        </script>
+ 
