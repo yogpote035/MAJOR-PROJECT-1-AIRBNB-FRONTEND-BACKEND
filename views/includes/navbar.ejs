@@ -1,25 +1,40 @@
 <nav class="navbar navbar-expand-md bg-body-light sticky-top border-bottom">
     <div class="container-fluid">
+        <!-- Brand Logo -->
         <a class="navbar-brand brand-active" href="/listings">
-            <i class="d-inline-block align-text-top"><i class='bx bxl-airbnb'></i></i>
-            airbnb
+            <i class='bx bxl-airbnb'></i> airbnb
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+
+        <!-- Toggle Button for Mobile View -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""><i class="fa-solid fa-bars-staggered"></i></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+
+        <!-- Collapsible Navbar Links -->
+        <div class="collapse navbar-collapse " id="">
+            <!-- Left Side Links -->
+            <div class="navbar-nav flex-column text-center text-md-start">
                 <a class="nav-link" href="/listings">Explore</a>
             </div>
-            <div class="navbar-nav ms-auto">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search Destinations" aria-label="Search">
-                    <button class="btn btn-outline-danger search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+
+            <!-- Search Bar -->
+            <div class="navbar-nav ms-auto flex-column text-center text-md-start">
+                <form class="d-flex flex-column flex-md-row align-items-md-center" role="search">
+                    <input class="form-control me-md-2 mb-2 mb-md-0" type="search" placeholder="Search Destinations"
+                        aria-label="Search">
+                    <button class="btn btn-outline-danger search-btn" type="submit">
+                        Search
+                    </button>
                 </form>
             </div>
-            <div class="navbar-nav ms-auto">
+
+            <!-- Right Side Links -->
+            <div class="navbar-nav ms-auto  text-center text-md-start">
                 <a class="nav-link" href="/listings/new">Airbnb your home</a>
-                <% if (!currentUser) {%>
+
+                <!-- Authentication Links -->
+                <% if (!currentUser) { %>
                     <b>
                         <a class="nav-link" href="/signup">
                             <i class="fa-solid fa-user-plus"></i> Signup
@@ -27,19 +42,60 @@
                     </b>
                     <b>
                         <a class="nav-link" href="/login">
-                            <i class="fa-solid fa-user"></i>Login
+                            <i class="fa-solid fa-user"></i> Login
                         </a>
                     </b>
-                    <% } %>
-
-                        <% if (currentUser) {%>
-                            <b>
-                                <a class="nav-link" href="/logout">
-                                    <i class="fa-solid fa-user-minus"></i> Logout
-                                </a>
-                            </b>
-                            <% } %>
+                    <% } else { %>
+                        <b>
+                            <a class="nav-link" href="/logout">
+                                <i class="fa-solid fa-user-minus"></i> Logout
+                            </a>
+                        </b>
+                        <% } %>
             </div>
         </div>
     </div>
+
+    <div class="box-nav">
+        <!-- Left Side Links -->
+        <div class="navbar-nav text-center">
+            <a class="nav-link" href="/listings">Explore</a>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="navbar-nav text-center">
+            <form class="d-flex flex-column align-items-center" role="search">
+                <input class="form-control mb-2" type="search" placeholder="Search Destinations" aria-label="Search">
+                <button class="btn btn-outline-danger search-btn" type="submit">
+                    Search
+                </button>
+            </form>
+        </div>
+
+        <!-- Right Side Links -->
+        <div class="navbar-nav text-center">
+            <a class="nav-link" href="/listings/new">Airbnb your home</a>
+
+            <!-- Authentication Links -->
+            <% if (!currentUser) { %>
+                <b>
+                    <a class="nav-link" href="/signup">
+                        <i class="fa-solid fa-user-plus"></i> Signup
+                    </a>
+                </b>
+                <b>
+                    <a class="nav-link" href="/login">
+                        <i class="fa-solid fa-user"></i> Login
+                    </a>
+                </b>
+                <% } else { %>
+                    <b>
+                        <a class="nav-link" href="/logout">
+                            <i class="fa-solid fa-user-minus"></i> Logout
+                        </a>
+                    </b>
+                    <% } %>
+        </div>
+    </div>
+
 </nav>
