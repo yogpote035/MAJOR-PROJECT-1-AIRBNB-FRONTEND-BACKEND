@@ -20,7 +20,7 @@
 
 /* Navigation Links */
 .nav-link {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: #333;
     text-decoration: none;
@@ -44,16 +44,16 @@
 
 .navbar-nav form .form-control {
     width: 100%;
-    border: 1px solid #ccc;
+    border: 1.4px solid #ccc;
     margin-top: .5rem;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .navbar-nav form .search-btn {
     font-size: 0.9rem;
     font-weight: bold;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-top: .7rem;
     margin-right: 2rem;
     margin-bottom: .5rem;
