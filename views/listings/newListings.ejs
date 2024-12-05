@@ -1,11 +1,11 @@
 <%- include("../includes/layouts/boilerplate") %>
 
-    <div class="container mt-5">
+    <div class="container mt-5 ">
         <div class="row">
             <div class="col-8 offset-2">
                 <h1 class="text-center mb-4">Create a New Listings</h1>
                 <form action="/listings" method="post" novalidate
-                    class="bg-white p-4 rounded shadow-sm needs-validation" enctype="multipart/form-data">
+                    class="bg-white p-4 rounded shadow-sm needs-validation mb-5" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="title" class="form-label">Enter Title</label>
                         <input type="text" name="listing[title]" required id="title" class="form-control"
@@ -46,16 +46,15 @@
                         <div class="collapse form-check" id="collapseExample">
                             <div class="form-check d-grid  p-2">
                                 <div>
-
-                                    <input class="form-check-input  m-1" required checked style="cursor: pointer;"
-                                        type="checkbox" value="Default" id="Default" name="Default">
+                                    <input class="form-check-input m-1" checked  style="cursor: pointer;"
+                                        type="checkbox" value="Default" id="Default" name="listing[category][]">
                                     <label class="form-check-label m-1" style="cursor: pointer;" for="Default">
                                         Default
                                     </label>
                                 </div>
-                                <% for (let i=0; i < categoryArray.length; i++) {%>
+                                <% for (let i=0; i < categoryArray.length; i++) { %>
                                     <div>
-                                        <input class="form-check-input  m-1" style="cursor: pointer;" type="checkbox"
+                                        <input class="form-check-input m-1" style="cursor: pointer;" type="checkbox"
                                             value="<%= categoryArray[i] %>" id="<%= categoryArray[i] %>"
                                             name="listing[category][]">
                                         <label class="form-check-label m-1" style="cursor: pointer;"
@@ -103,7 +102,6 @@
             </div>
         </div>
     </div>
-
 
     <%- include("../includes/footer") %>
 
