@@ -26,20 +26,20 @@
 }
 
 /* Search Form */
-form {
+.navbar-nav form {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-form .form-control {
+.navbar-nav form .form-control {
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-form .search-btn {
+.navbar-nav form .search-btn {
     font-size: 0.9rem;
     font-weight: bold;
     padding: 0.5rem 1rem;
@@ -61,17 +61,17 @@ form .search-btn {
         gap: 1rem;
     }
 
-    form {
+    .navbar-nav form {
         flex-direction: row;
         align-items: center;
     }
 
-    form .form-control {
+    .navbar-nav form .form-control {
         max-width: 300px;
         margin-right: 1rem;
     }
 
-    .search-btn {
+    .navbar-nav form.search-btn {
         margin-top: 0;
     }
 }
