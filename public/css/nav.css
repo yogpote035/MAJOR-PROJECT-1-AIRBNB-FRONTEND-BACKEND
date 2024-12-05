@@ -30,6 +30,10 @@
     color: #ff385c;
 }
 
+.navbar-brand{
+    font-weight:500;
+}
+
 /* Search Form */
 .navbar-nav form {
     width: 100%;
