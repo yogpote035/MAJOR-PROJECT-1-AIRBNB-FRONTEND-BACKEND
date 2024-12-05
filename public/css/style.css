@@ -11,6 +11,7 @@ body {
 .tax-info {
     display: none;
 }
+
 .navbar {
     height: 5rem;
     background-color: white;
@@ -289,6 +290,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .form-check-input {
     margin: 0;
+    cursor: pointer;
     /* Ensure no extra margin for the switch button */
 }
 
@@ -296,7 +298,7 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
     line-height: .8rem;
     /* Ensure no extra margin for the label */
-    
+
 }
 
 
@@ -308,5 +310,3 @@ input[type="number"]::-webkit-outer-spin-button {
 .search-btn i {
     display: inline;
 }
-
-
