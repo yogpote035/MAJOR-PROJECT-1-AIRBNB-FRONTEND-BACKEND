@@ -2,14 +2,16 @@ const axios = require('axios');
 const { OPEN_CAGE_API_KEY } = process.env; // Ensure the API key is securely stored
 const Listing = require("../models/listing");
 const ExpressError = require("../utils/ExpressError");
+
 module.exports.index = async (request, response) => {
     const allListing = await Listing.find({});
     response.render("listings/index.ejs", { allListing });
 }
 
+const categoryArray = ["Beach", "City", "Mountain", "River", "Farm", "Couple-spot", "Honeymoon", "Room", "Pool", "Tree-house", "Camping", "Tower", "Trending", "Off-country", "boats", "Vacation"];
 
 module.exports.NewListingForm = (request, response) => {
-    response.render("listings/newListings.ejs");
+    response.render("listings/newListings.ejs", { categoryArray });
 }
 
 
@@ -18,7 +20,7 @@ module.exports.NewListingFormResponse = async (request, response, next) => {
     let url = request.file.path;
     let filename = request.file.filename;
 
-    const { location, country } = request.body.listing;
+    const { location, country,category } = request.body.listing;
     const address = `${location}, ${country}`; // Combine location and country
 
     try {
@@ -32,9 +34,11 @@ module.exports.NewListingFormResponse = async (request, response, next) => {
             throw new ExpressError(500, "Unable to fetch coordinates for the given address.");
         }
 
+        
         // Create and save the new listing
         const newListing = new Listing({
             ...request.body.listing,
+            category,
             owner: request.user._id,
             image: { url, filename },
             coordinates: [lng, lat], // Save as [longitude, latitude]
