@@ -2,15 +2,20 @@
 .box-nav {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centering all items horizontally */
-    justify-content: center; /* Centering all items vertically */
+    align-items: center;
+    /* Centering all items horizontally */
+    justify-content: center;
+    /* Centering all items vertically */
     gap: 1.5rem;
     padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #f8f9fa; /* Light background for the box */
-    max-width: 400px; /* Limit width for better appearance on mobile */
-    margin: 0 auto; /* Center align on mobile */
+    background-color: #f8f9fa;
+    /* Light background for the box */
+    max-width: 400px;
+    /* Limit width for better appearance on mobile */
+    margin: 0 auto;
+    /* Center align on mobile */
 }
 
 /* Navigation Links */
@@ -36,6 +41,7 @@
 .navbar-nav form .form-control {
     width: 100%;
     border: 1px solid #ccc;
+    margin-top: .5rem;
     border-radius: 4px;
 }
 
@@ -44,7 +50,9 @@
     font-weight: bold;
     padding: 0.5rem 1rem;
     border-radius: 4px;
+    margin-top: .7rem;
     margin-right: 2rem;
+    margin-bottom: .5rem;
 }
 
 /* Responsive Styles */
@@ -54,7 +62,8 @@
         justify-content: center;
         align-items: center;
         padding: 1.5rem;
-        max-width: 100%; /* Stretch to full width on larger screens */
+        max-width: 100%;
+        /* Stretch to full width on larger screens */
     }
 
     .navbar-nav {
@@ -74,13 +83,11 @@
 
     .navbar-nav form.search-btn {
         margin-top: 0;
-        
+
     }
 }
 
 
-.box-nav{
+.box-nav {
     display: none;
 }
-
-
