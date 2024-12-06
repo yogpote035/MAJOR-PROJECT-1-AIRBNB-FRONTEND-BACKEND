@@ -20,8 +20,9 @@
 
             <!-- Search Bar -->
             <div class="navbar-nav ms-auto flex-column text-center text-md-start">
-                <form class="d-flex flex-column flex-md-row align-items-md-center" role="search">
-                    <input class="form-control me-md-2 mb-2 mb-md-0" type="search" placeholder="Search Destinations"
+                <form class="d-flex flex-column flex-md-row align-items-md-center"
+                    action="/listings/search" method="post" role="search">
+                    <input class="form-control me-md-2 mb-2 mb-md-0" type="search" name="search" placeholder="Search Destinations"
                         aria-label="Search">
                     <button class="btn btn-outline-danger search-btn" type="submit">
                         Search
@@ -64,8 +65,10 @@
 
         <!-- Search Bar -->
         <div class="navbar-nav text-center">
-            <form class="d-flex flex-column justify-content-center align-items-center" role="search">
-                <input class="form-control  mb-2" type="search" placeholder="Search Destinations" aria-label="Search">
+            <form class="d-flex flex-column justify-content-center align-items-center" method="post"  action="/listings/search"
+                role="search">
+                <input class="form-control  mb-2" type="search" name="search" placeholder="Search Destinations"
+                    aria-label="Search">
                 <button class="btn btn-outline-danger  search-btn" type="submit">
                     Search
                 </button>

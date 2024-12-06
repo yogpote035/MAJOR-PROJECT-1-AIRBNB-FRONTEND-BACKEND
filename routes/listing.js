@@ -29,6 +29,7 @@ router.route("/:id")
 // edit listing
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.GetEditForm))
 
+router.post("/search",wrapAsync(listingController.SearchByTitle))
 
 
 module.exports = router;

@@ -20,7 +20,7 @@ module.exports.NewListingFormResponse = async (request, response, next) => {
     let url = request.file.path;
     let filename = request.file.filename;
 
-    const { location, country,category } = request.body.listing;
+    const { location, country, category } = request.body.listing;
     const address = `${location}, ${country}`; // Combine location and country
 
     try {
@@ -34,7 +34,7 @@ module.exports.NewListingFormResponse = async (request, response, next) => {
             throw new ExpressError(500, "Unable to fetch coordinates for the given address.");
         }
 
-        
+
         // Create and save the new listing
         const newListing = new Listing({
             ...request.body.listing,
@@ -110,4 +110,18 @@ module.exports.DeleteListing = async (request, response) => {
     request.flash("success", "Listing is Deleted");
 
     response.redirect("/listings");
+}
+
+
+module.exports.SearchByTitle = async (request, response) => {
+    let { search } = request.body;
+    console.log(search);
+
+    const listings = await Listing.find({
+        title: { $regex: search, $options: "i" } // Matches the input in any case
+    });
+    if (!listings) {
+        throw new ExpressError(404, "Search Listing not found");
+    }
+    response.render("listings/searchListings.ejs",{listings,search});
 }
