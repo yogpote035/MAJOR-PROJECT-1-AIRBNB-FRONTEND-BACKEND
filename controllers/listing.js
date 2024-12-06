@@ -115,7 +115,6 @@ module.exports.DeleteListing = async (request, response) => {
 
 module.exports.SearchByTitle = async (request, response) => {
     let { search } = request.body;
-    console.log(search);
 
     const listings = await Listing.find({
         title: { $regex: search, $options: "i" } // Matches the input in any case
