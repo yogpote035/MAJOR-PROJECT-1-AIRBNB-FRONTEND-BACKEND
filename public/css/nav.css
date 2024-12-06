@@ -15,6 +15,7 @@
     max-width: 400px;
     /* Limit width for better appearance on mobile */
     margin: 0 auto;
+    margin-top: 2.5rem;
     /* Center align on mobile */
 }
 
@@ -65,7 +66,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        padding: 1.5rem;
+        padding: 1rem;
         max-width: 100%;
         /* Stretch to full width on larger screens */
     }
