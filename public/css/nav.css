@@ -93,6 +93,17 @@
 }
 
 
+
+
+
+
+
+
+
 .box-nav {
-    display: none;
-}
+    display: none; /* Default hidden */
+  }
+  .box-nav.show {
+    display: block; /* Shown when 'show' class is added */
+  }
+  
