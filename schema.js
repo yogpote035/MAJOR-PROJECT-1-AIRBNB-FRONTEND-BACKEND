@@ -9,7 +9,7 @@ module.exports.listingSchema = joi.object({
         location: joi.string().required(),
         country: joi.string().required(),
         category: joi.string().valid(
-            "Default","Beach", "City", "Mountain", "River", "Farm", "Couple-spot", "Honeymoon",
+            "Beach", "City", "Mountain", "River", "Farm", "Couple-spot", "Honeymoon",
             "Room", "Pool", "Tree-house", "Camping", "Tower", "Trending", "Off-country",
             "boats", "Vacation"
         ).required(),

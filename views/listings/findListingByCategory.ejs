@@ -1,0 +1,39 @@
+<%- include("../includes/layouts/boilerplate") %>
+<h2 class="text-center"> Category results for <span class="searchHead"><%= categoryFind %></span>
+</h2>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            <% for (let listing of allListing) { %>
+                <div class="col">
+                    <div class="card">
+                        <a class="listingNavigator" href="/listings/<%=listing.id%>">
+                            <img src="<%= listing.image.url %>" class="card-img-top" alt="image">
+                            <div class="card-img-overlay"></div>
+                            <div class="card-body">
+
+                                <span class="card-text fw-bold">
+                                    <%= listing.location %>,<%= listing.country %>
+                                </span>
+                                <p class="text-muted m-0">
+                                    <!-- m-0 is applied by me not compulsury -->
+                                    <%= listing.title %>
+                                </p>
+                                <span class="fw-bold text-dark">
+                                    &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : 'N/A' %>
+                                        /night <p class="tax-info">+ 18% GST</p>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+    </div>
+
+    <%- include("../includes/footer") %>
+
+        </body>
+
+        </html>
+
+ 

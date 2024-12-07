@@ -35,11 +35,14 @@
   
 
 
-  // select
+  function scrollFilters(scrollValue) {
+    const filtersContainer = document.querySelector(".filters");
 
-  function scrollFilters(amount) {
-    const filters = document.querySelector(".filters");
-    filters.scrollBy({ left: amount, behavior: "smooth" });
-  }
-
-  
+    if (filtersContainer) {
+        // Scroll the filters container
+        filtersContainer.scrollBy({
+            left: scrollValue,
+            behavior: "smooth"
+        });
+    }
+}
