@@ -15,6 +15,7 @@ router.route("/")
 // add new listing
 router.get("/new", isLoggedIn, listingController.NewListingForm)
 
+router.post("/search",wrapAsync(listingController.SearchByTitle))
 
 
 
@@ -29,7 +30,6 @@ router.route("/:id")
 // edit listing
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.GetEditForm))
 
-router.post("/search",wrapAsync(listingController.SearchByTitle))
 
 
 module.exports = router;
