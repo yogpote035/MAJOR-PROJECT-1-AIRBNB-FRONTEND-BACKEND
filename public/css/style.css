@@ -322,3 +322,10 @@ input[type="number"]::-webkit-outer-spin-button {
 .searchHead{
     color: #fe424d;
 }
+
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
