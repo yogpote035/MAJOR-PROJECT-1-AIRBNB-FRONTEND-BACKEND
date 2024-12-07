@@ -37,4 +37,9 @@
 
   // select
 
+  function scrollFilters(amount) {
+    const filters = document.querySelector(".filters");
+    filters.scrollBy({ left: amount, behavior: "smooth" });
+  }
+
   

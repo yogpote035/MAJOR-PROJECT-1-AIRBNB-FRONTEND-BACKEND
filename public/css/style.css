@@ -252,29 +252,53 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 
-/* Filter text */
-.filter p {
-    margin: 0;
-    font-size: 12px;
-    /* Smaller text size */
-    color: #333;
-    /* Darker text for readability */
-    font-weight: 500;
-    transition: text-decoration 0.2s ease-in-out;
-    /* Smooth underline effect */
-}
-
-/* Hover effect for text */
-.filter:hover p {
-    text-decoration: underline;
-    /* Underline on hover */
-}
-
+.filter .icon a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .filter .icon a:hover {
+    color: #ff5a5f; /* Airbnb red */
+  }
+  
 .tax-switch {
     display: flex;
     align-items: center;
 }
 
+.filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    padding: 20px;
+  }
+  
+  .filter {
+    text-align: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .filter:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filter .icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .filter p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+  }
+
+  
 .border-box {
     display: flex;
     align-items: center;
@@ -327,5 +351,84 @@ input[type="number"]::-webkit-outer-spin-button {
 .navbar-toggler:focus {
     outline: none;
     box-shadow: none;
+  }
+  
+
+  /* Carousel container styling */
+.filters {
+    display: flex;
+    gap: 15px; /* Space between items */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    white-space: nowrap; /* Prevents line breaks */
+    padding: 10px;
+    scroll-snap-type: x mandatory; /* Enables snapping */
+  }
+  
+  /* Individual filter item styling */
+  .filter {
+    scroll-snap-align: center; /* Aligns the item to the center on scroll */
+    text-align: center;
+    flex: 0 0 auto; /* Prevents items from shrinking */
+    width: 100px; /* Set a consistent width for filters */
+    background-color: #f8f9fa; /* Light background for visual separation */
+    border: 1px solid #ddd; /* Border for filters */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Add some hover effect for better interactivity */
+  .filter:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+  }
+  
+  /* Remove scrollbar in modern browsers */
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Compatibility for other scrollbars */
+  .filters {
+    scrollbar-width: none;
+  }
+  
+  /* Icons inside filters */
+  .filter .icon {
+    font-size: 24px; /* Icon size */
+    color: #dc3545; /* Icon color */
+    margin-bottom: 5px;
+  }
+  
+
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ddb6b680;
+    color: #fff;
+    border: none;
+    padding: 2px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+  }
+  
+  .carousel-button.left {
+    left: 14px;
+  }
+  .carousel-button.left :hover{
+    color: #fe424d;
+  }
+  .carousel-button.right :hover{
+    color: #fe424d;
+  }
+  
+  .carousel-button.right {
+    right: 6px;
+  }
+  
+  .fa-circle-chevron-left ,.fa-circle-chevron-right{
+    font-size:2rem;
   }
   
