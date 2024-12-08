@@ -15,7 +15,7 @@ body {
 .navbar {
     height: 5rem;
     background-color: white;
-    width: 100%; 
+    width: 100%;
 }
 
 .navbar-brand,
@@ -255,15 +255,21 @@ input[type="number"]::-webkit-outer-spin-button {
 .filter .icon a {
     color: inherit;
     text-decoration: none;
-  }
-  
-  .filter .icon a:hover {
-    color: #ff5a5f; /* Airbnb red */
-  }
-  
+}
+
+.filter .icon a:hover {
+    color: #ff5a5f;
+    /* Airbnb red */
+}
+
 .tax-switch {
-    display: flex;
-    align-items: center;
+    display: inline-flex;
+    place-items: center;
+}
+
+.tax-switch input,
+label {
+    margin: .2rem;
 }
 
 .filters {
@@ -271,34 +277,34 @@ input[type="number"]::-webkit-outer-spin-button {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
     padding: 20px;
-  }
-  
-  .filter {
+}
+
+.filter {
     text-align: center;
     padding: 10px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     transition: transform 0.2s, box-shadow 0.2s;
-  }
-  
-  .filter:hover {
+}
+
+.filter:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .filter .icon {
+}
+
+.filter .icon {
     font-size: 24px;
     margin-bottom: 5px;
-  }
-  
-  .filter p {
+}
+
+.filter p {
     margin: 0;
     font-size: 14px;
     color: #333;
-  }
+}
 
-  
+
 .border-box {
     display: flex;
     align-items: center;
@@ -343,7 +349,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* select  */
 
-.searchHead{
+.searchHead {
     color: #fe424d;
 }
 
@@ -351,57 +357,77 @@ input[type="number"]::-webkit-outer-spin-button {
 .navbar-toggler:focus {
     outline: none;
     box-shadow: none;
-  }
-  
+}
 
-  /* Carousel container styling */
+
+
+.form-check-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* Carousel container styling */
 .filters {
     display: flex;
-    gap: 15px; /* Space between items */
-    overflow-x: auto; /* Enables horizontal scrolling */
-    white-space: nowrap; /* Prevents line breaks */
+    gap: 15px;
+    /* Space between items */
+    overflow-x: auto;
+    /* Enables horizontal scrolling */
+    white-space: nowrap;
+    /* Prevents line breaks */
     padding: 10px;
-    scroll-snap-type: x mandatory; /* Enables snapping */
-  }
-  
-  /* Individual filter item styling */
-  .filter {
-    scroll-snap-align: center; /* Aligns the item to the center on scroll */
+    scroll-snap-type: x mandatory;
+    /* Enables snapping */
+}
+
+/* Individual filter item styling */
+.filter {
+    scroll-snap-align: center;
+    /* Aligns the item to the center on scroll */
     text-align: center;
-    flex: 0 0 auto; /* Prevents items from shrinking */
-    width: 100px; /* Set a consistent width for filters */
-    background-color: #f8f9fa; /* Light background for visual separation */
-    border: 1px solid #ddd; /* Border for filters */
-    border-radius: 10px; /* Rounded corners */
+    flex: 0 0 auto;
+    /* Prevents items from shrinking */
+    width: 100px;
+    /* Set a consistent width for filters */
+    background-color: #f8f9fa;
+    /* Light background for visual separation */
+    border: 1px solid #ddd;
+    /* Border for filters */
+    border-radius: 10px;
+    /* Rounded corners */
     padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  }
-  
-  /* Add some hover effect for better interactivity */
-  .filter:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+/* Add some hover effect for better interactivity */
+.filter:hover {
     background-color: #e9ecef;
     cursor: pointer;
-  }
-  
-  /* Remove scrollbar in modern browsers */
-  .filters::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Compatibility for other scrollbars */
-  .filters {
-    scrollbar-width: none;
-  }
-  
-  /* Icons inside filters */
-  .filter .icon {
-    font-size: 24px; /* Icon size */
-    color: #dc3545; /* Icon color */
-    margin-bottom: 5px;
-  }
-  
+}
 
-  .carousel-button {
+/* Remove scrollbar in modern browsers */
+.filters::-webkit-scrollbar {
+    display: none;
+}
+
+/* Compatibility for other scrollbars */
+.filters {
+    scrollbar-width: none;
+}
+
+/* Icons inside filters */
+.filter .icon {
+    font-size: 24px;
+    /* Icon size */
+    color: #dc3545;
+    /* Icon color */
+    margin-bottom: 5px;
+}
+
+
+.carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -412,23 +438,25 @@ input[type="number"]::-webkit-outer-spin-button {
     cursor: pointer;
     z-index: 1;
     border-radius: 50%;
-  }
-  
-  .carousel-button.left {
+}
+
+.carousel-button.left {
     left: 14px;
-  }
-  .carousel-button.left :hover{
+}
+
+.carousel-button.left :hover {
     color: #fe424d;
-  }
-  .carousel-button.right :hover{
+}
+
+.carousel-button.right :hover {
     color: #fe424d;
-  }
-  
-  .carousel-button.right {
+}
+
+.carousel-button.right {
     right: 6px;
-  }
-  
-  .fa-circle-chevron-left ,.fa-circle-chevron-right{
-    font-size:2rem;
-  }
-  
+}
+
+.fa-circle-chevron-left,
+.fa-circle-chevron-right {
+    font-size: 2rem;
+}
