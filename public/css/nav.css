@@ -31,8 +31,8 @@
     color: #ff385c;
 }
 
-.navbar-brand{
-    font-weight:500;
+.navbar-brand {
+    font-weight: 500;
 }
 
 /* Search Form */
@@ -101,9 +101,19 @@
 
 
 .box-nav {
-    display: none; /* Default hidden */
-  }
-  .box-nav.show {
-    display: block; /* Shown when 'show' class is added */
-  }
-  
+    display: none;
+    /* Default hidden */
+}
+
+.box-nav.show {
+    display: block;
+    /* Shown when 'show' class is added */
+}
+
+nav {
+    position: fixed;
+}
+
+.container-fluid {
+    position: fixed;
+}
