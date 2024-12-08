@@ -21,21 +21,17 @@ module.exports.NewListingFormResponse = async (request, response, next) => {
     let filename = request.file.filename;
 
     const { location, country, category } = request.body.listing;
-    const address = `${location}, ${country}`; // Combine location and country
-
+    const address = `${location}, ${country}`; 
     try {
-        // Fetch coordinates using OpenCage API
         const geocodeUrl = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${OPEN_CAGE_API_KEY}`;
         const geocodeResponse = await axios.get(geocodeUrl);
 
-        // Extract latitude and longitude
         const { lat, lng } = geocodeResponse.data.results[0]?.geometry || {};
         if (!lat || !lng) {
             throw new ExpressError(500, "Unable to fetch coordinates for the given address.");
         }
 
 
-        // Create and save the new listing
         const newListing = new Listing({
             ...request.body.listing,
             category,
@@ -64,7 +60,7 @@ module.exports.GetEditForm = async (request, response) => {
     }
     let originalImageUrl = listing.image.url;
     originalImageUrl = originalImageUrl.replace("/upload", "/upload/w_350");
-    response.render("listings/editListing.ejs", { listing, originalImageUrl });
+    response.render("listings/editListing.ejs", { listing, originalImageUrl,categoryArray });
 }
 
 

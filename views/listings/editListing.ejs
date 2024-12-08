@@ -41,6 +41,33 @@
                             <img class="card-img-top" src="<%= originalImageUrl %>" alt="<%= listing.image.filename %>">
                         </div>
                         <div class="mb-3">
+
+                            <p class="d-flex">
+
+                                <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseExample" aria-expanded="false"
+                                    aria-controls="collapseExample">
+                                    select category of your listings </button>
+                            </p>
+                            <div class="collapse form-check" id="collapseExample">
+                                <div class="form-check d-grid  p-2">
+
+                                    <% for (let i=0; i < categoryArray.length; i++) { %>
+                                        <div>
+                                            <input class="form-check-input m-1" style="cursor: pointer;" type="checkbox"
+                                                value="<%= categoryArray[i] %>" id="<%= categoryArray[i] %>"
+                                                name="listing[category][]"
+                                                <%=listing.category.includes(categoryArray[i]) ? 'checked' : '' %>>
+                                            <label class="form-check-label m-1" style="cursor: pointer;"
+                                                for="<%= categoryArray[i] %>">
+                                                <%= categoryArray[i] %>
+                                            </label>
+                                        </div>
+                                        <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
                             <label for="price" class="form-label">Enter Price</label>
                             <input type="number" required name="listing[price]" id="price" value="<%=listing.price  %>"
                                 class="form-control" placeholder="Enter price" style="appearance: textfield;">
