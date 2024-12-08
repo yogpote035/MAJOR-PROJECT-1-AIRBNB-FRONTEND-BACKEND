@@ -22,7 +22,7 @@ const listingSchema = new Schema({
     {
       type: String,
       enum: [
-         "Beach", "City", "Mountain", "River", "Farm", "Couple-spot",
+        "Beach","Lake", "City", "Mountain", "River", "Farm", "Couple-spot",
         "Honeymoon", "Room", "Pool", "Tree-house", "Camping", "Tower",
         "Trending", "Off-country", "boats", "Vacation"
       ],
