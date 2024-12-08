@@ -7,6 +7,7 @@ const multer = require("multer");
 const { storage } = require("../cloudConfig.js");
 const upload = multer({ storage });
 
+router.post("/search",wrapAsync(listingController.SearchByTitle))
 
 router.route("/")
     .get(wrapAsync(listingController.index))
@@ -15,7 +16,6 @@ router.route("/")
 // add new listing
 router.get("/new", isLoggedIn, listingController.NewListingForm)
 
-router.get("/search",wrapAsync(listingController.SearchByTitle))
  
 
 router.get("/category/trending",wrapAsync(listingController.trendingCategory));
