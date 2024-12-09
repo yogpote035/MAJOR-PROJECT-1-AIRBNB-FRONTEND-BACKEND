@@ -368,7 +368,6 @@ label {
     box-shadow: none;
 }
 
-
 /* Carousel container styling */
 .filters {
     display: flex;
@@ -390,7 +389,7 @@ label {
     text-align: center;
     flex: 0 0 auto;
     /* Prevents items from shrinking */
-    width: 100px;
+    width: 120px;
     /* Set a consistent width for filters */
     background-color: #f8f9fa;
     /* Light background for visual separation */
@@ -403,7 +402,7 @@ label {
     /* Subtle shadow */
 }
 
-/* Add some hover effect for better interactivity */
+/* Hover effect on filter box */
 .filter:hover {
     background-color: #e9ecef;
     cursor: pointer;
@@ -428,7 +427,15 @@ label {
     margin-bottom: 5px;
 }
 
+/* Make entire filter box clickable */
+.filter a {
+    text-decoration: none;
+    /* Remove underlines from links */
+    color: inherit;
+    /* Inherit color for text */
+}
 
+/* Carousel button styling */
 .carousel-button {
     position: absolute;
     top: 50%;
@@ -446,11 +453,11 @@ label {
     left: 14px;
 }
 
-.carousel-button.left :hover {
+.carousel-button.left:hover {
     color: #fe424d;
 }
 
-.carousel-button.right :hover {
+.carousel-button.right:hover {
     color: #fe424d;
 }
 
