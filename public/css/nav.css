@@ -118,7 +118,30 @@ nav {
     position: fixed;
 }
 
-.logoColor{
+.logoColor {
     color: #fe424d;
 
+}
+
+
+.tax-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.tax-button i {
+    font-size: 2rem;
+    margin-left: .8rem;
+    color: #fe424d;
+    cursor: pointer;
+}
+
+.tax-button p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: black;
+    font-weight: 500;
 }
