@@ -21,7 +21,7 @@ module.exports.NewListingFormResponse = async (request, response, next) => {
     let filename = request.file.filename;
 
     const { location, country, category } = request.body.listing;
-    const address = `${location}, ${country}`; 
+    const address = `${location}, ${country}`;
     try {
         const geocodeUrl = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${OPEN_CAGE_API_KEY}`;
         const geocodeResponse = await axios.get(geocodeUrl);
@@ -60,7 +60,7 @@ module.exports.GetEditForm = async (request, response) => {
     }
     let originalImageUrl = listing.image.url;
     originalImageUrl = originalImageUrl.replace("/upload", "/upload/w_350");
-    response.render("listings/editListing.ejs", { listing, originalImageUrl,categoryArray });
+    response.render("listings/editListing.ejs", { listing, originalImageUrl, categoryArray });
 }
 
 
@@ -112,9 +112,18 @@ module.exports.DeleteListing = async (request, response) => {
 module.exports.SearchByTitle = async (request, response) => {
     let { search } = request.body;
 
-    const listings = await Listing.find({
-        title: { $regex: search, $options: "i" } // Matches the input in any case
-    });
+    const query = search
+        ? {
+            $or: [
+                { title: { $regex: search, $options: "i" } },
+                { country: { $regex: search, $options: "i" } },
+                { category: { $regex: search, $options: "i" } },
+            ],
+        }
+        : {};
+
+    let listings = await Listing.find(query);
+    
     if (!listings) {
         throw new ExpressError(404, "Search Listing not found");
     }
@@ -127,180 +136,180 @@ module.exports.SearchByTitle = async (request, response) => {
 module.exports.trendingCategory = async (request, response) => {
     let categoryFind = "Trending";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 2 room
 module.exports.roomCategory = async (request, response) => {
     let categoryFind = "Room";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 3 Mountain
 module.exports.MountainCategory = async (request, response) => {
     let categoryFind = "Mountain";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 4 Lake
 module.exports.LakeCategory = async (request, response) => {
     let categoryFind = "Lake";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 5 Pool
 module.exports.PoolCategory = async (request, response) => {
     let categoryFind = "Pool";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 6 Beach
 module.exports.BeachCategory = async (request, response) => {
     let categoryFind = "Beach";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 7 TreeHouse
 module.exports.TreeHouseCategory = async (request, response) => {
     let categoryFind = "Tree-house";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 8 Camping
 module.exports.CampingCategory = async (request, response) => {
     let categoryFind = "Camping";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 9 TopCity
 module.exports.CityCategory = async (request, response) => {
     let categoryFind = "City";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 10 Tower 
 module.exports.TowerCategory = async (request, response) => {
     let categoryFind = "Tower";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 11 River
 module.exports.RiverCategory = async (request, response) => {
     let categoryFind = "River";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 12 CoupleSpot
 module.exports.CoupleSpotCategory = async (request, response) => {
     let categoryFind = "Couple-spot";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 13 off country
 module.exports.OffCountryCategory = async (request, response) => {
     let categoryFind = "Off-country";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 14 vacation
 module.exports.VacationCategory = async (request, response) => {
     let categoryFind = "Vacation";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 // 15 Honeymoon
 module.exports.HoneymoonCategory = async (request, response) => {
     let categoryFind = "Honeymoon";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
 
 
@@ -308,10 +317,10 @@ module.exports.HoneymoonCategory = async (request, response) => {
 module.exports.BoatsCategory = async (request, response) => {
     let categoryFind = "boats";
     const allListing = await Listing.find({ category: categoryFind });
-   
+
     if (!categoryFind) {
-        request.flash("error",`find category not exists`);
+        request.flash("error", `find category not exists`);
         return response.redirect("/listings");
     }
-    response.render("listings/findListingByCategory.ejs", { allListing ,categoryFind});
+    response.render("listings/findListingByCategory.ejs", { allListing, categoryFind });
 }
