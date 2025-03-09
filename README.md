@@ -18,14 +18,12 @@ This project is a full-stack clone of the Airbnb platform. The frontend is built
 
 - **User Authentication**: Users can sign up, log in, and manage their profiles.
 - **Property Listings**: View available properties with filters for location, price, and dates.
-- **Booking System**: Users can make bookings for available properties.
 - **Responsive Design**: Mobile-friendly design for easy access on all devices.
 
 ## Technologies Used
 
 - **Frontend**:
   - HTML, CSS, JavaScript
-  - Axios (for API requests)
 
 - **Backend**:
   - Node.js (runtime environment)
