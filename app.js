@@ -88,6 +88,13 @@ app.use((request, response, next) => {
 app.get("/", (request, response) => {
     response.redirect("/listings");
 })
+// for server request
+app.get("/health", (request, response) => {
+  response.status(200).send("ok");
+});
+app.head("/health", (request, response) => {
+  response.status(200).send("ok");
+});
 
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewRouter);
